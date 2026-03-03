@@ -12,5 +12,3 @@ defined('CONTROL') or die('Acesso inválido.');
 </head>
 <body>
     
-</body>
-</html>
