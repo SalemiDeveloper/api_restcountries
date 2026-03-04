@@ -4,7 +4,7 @@ class ApiConsumer {
     private function api($endpoint, $method = "GET", $post_fields = array()) {
         $curl = curl_init();
 
-        curl_setopt_array($curl, [
+        curl_setopt_array($curl, array(
 
             // "/all" não vai funcionar. Colocar na função get_all_countries
             // name, population e languages
@@ -21,7 +21,7 @@ class ApiConsumer {
             CURLOPT_HTTPHEADER => [
                 "Accept: */*"
             ],
-        ]);
+        ));
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
@@ -37,7 +37,13 @@ class ApiConsumer {
     }
 
     public function get_all_contries() {
-        // get all countries data
-        return $this->api('all')
+        // Retornando todos os países com as informações: name, capital e população.
+        return $this->api('all?fields=name,capital,population');
+    }
+
+    public function get_country($country_name) {
+
+        // Retornando um país específico
+        return $this->api("name/$country_name");
     }
 }

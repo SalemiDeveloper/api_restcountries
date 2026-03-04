@@ -5,6 +5,7 @@ define('CONTROL', true);
 
 // Incluindo arquivos
 $routes = require_once('inc/route.php');
+require_once('inc/api_consumer.php');
 
 // Definindo rotas
 $route = $_GET['route'] ?? 'home';
