@@ -36,9 +36,17 @@ class ApiConsumer {
         }
     }
 
-    public function get_all_contries() {
-        // Retornando todos os países com as informações: name, capital e população.
-        return $this->api('all?fields=name,capital,population');
+    public function get_all_countries() {
+        // Retornando todos os países
+        $results =  $this->api('all?fields=name');
+
+        $countries = array();
+        foreach($results as $result) {
+            $countries[] = $result['name']['common'];
+        }
+
+        sort($countries); // Ordenando em ordem alfabética.
+        return $countries;
     }
 
     public function get_country($country_name) {
