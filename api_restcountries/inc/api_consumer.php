@@ -6,10 +6,6 @@ class ApiConsumer {
 
         curl_setopt_array($curl, array(
 
-            // "/all" não vai funcionar. Colocar na função get_all_countries
-            // name, population e languages
-            // 32:15
-
             CURLOPT_URL => "https://restcountries.com/v3.1/$endpoint",
             CURLOPT_RETURNTRANSFER => true,
             //CURLOPT_SSL_VERIFYPEER => false,
@@ -36,8 +32,8 @@ class ApiConsumer {
         }
     }
 
+    // Retornando todos os países (apenas nomes, em ordem alfabética).
     public function get_all_countries() {
-        // Retornando todos os países
         $results =  $this->api('all?fields=name');
 
         $countries = array();
