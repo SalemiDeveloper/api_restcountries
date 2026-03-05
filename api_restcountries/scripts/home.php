@@ -15,7 +15,7 @@ $countries = $api->get_all_countries();
 
     <div class="row">
         <div class="col text-center">
-            <h3>Pa�ses do mundo.</h3>
+            <h3>Países do mundo.</h3>
             <hr>
 
         </div>
@@ -24,10 +24,10 @@ $countries = $api->get_all_countries();
     <div class="row justify-content-center">
 
         <div class="col-4">
-            <p>Lista de pa�ses</p>
+            <p>Lista de países</p>
 
             <select id="select_country" class="form-select">
-                <option value="">Selecione um pa�s</option>
+                <option value="">Selecione um país</option>
                 <?php foreach ($countries as $country): ?>
                     <option value="<?= htmlspecialchars($country) ?>">
                         <?= htmlspecialchars($country) ?>

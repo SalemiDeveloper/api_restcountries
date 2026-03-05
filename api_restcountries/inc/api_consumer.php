@@ -4,9 +4,11 @@ class ApiConsumer {
     private function api($endpoint, $method = "GET", $post_fields = array()) {
         $curl = curl_init();
 
+        //print_r($endpoint);
+
         curl_setopt_array($curl, array(
 
-            CURLOPT_URL => "https://restcountries.com/v3.1/$endpoint",
+            CURLOPT_URL => "https://restcountries.com/v3.1/".$endpoint,
             CURLOPT_RETURNTRANSFER => true,
             //CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_ENCODING => "",
@@ -48,6 +50,6 @@ class ApiConsumer {
     public function get_country($country_name) {
 
         // Retornando um país específico
-        return $this->api("name/$country_name");
+        return $this->api("name/" . rawurlencode($country_name) . "?fullText=true");
     }
 }

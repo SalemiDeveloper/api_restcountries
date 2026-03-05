@@ -20,11 +20,11 @@ $country_data = $api->get_country($country);
         </div>
 
         <div class="ms-5 allign-self-c">
-            <h3>Nome do pa�s</h3>
+            <h3>Nome do país</h3>
             <p class="display-3"><?php echo $country_data[0]['name']['common'] ?></p>
             <h3>Capital:</h3>
             <p><?php echo $country_data[0]['capital'][0] ?></p>
-            <h3>Popula��o:</h3>
+            <h3>População:</h3>
             <p><?php echo $country_data[0]['population'] ?></p>
         </div>
 
@@ -32,8 +32,14 @@ $country_data = $api->get_country($country);
 
     <div class="row mt-3">
         <div class="col">
-            <p>Regi�o: </p>
+            <p><strong>Região:</strong> <?php echo $country_data[0]['region']; ?></p>
+            <p><strong>Área:</strong> <?php echo $country_data[0]['area']; ?> km<sup>2</sup></p>
         </div>
     </div>
+
+    <div>
+        <a href="?route=home" class="btn btn-primary px-5">Voltar</a>
+    </div>
+
 </div>
 
