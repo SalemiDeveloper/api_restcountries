@@ -48,10 +48,10 @@ git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 
 ### 3️⃣ Inicie o servidor PHPa
-php -S localhost:8000
+php -S localhost:8001
 
 ### 4️⃣ Acesse no navegador
-http://localhost:8000
+http://localhost:8001
 
 
 ## 🔄 Como Funciona o Consumo da API
@@ -72,4 +72,4 @@ http://localhost:8000
 - Tratamento de erros de requisi��o
 - Estrutura��o de aplica��o sem framework
 
-## Projeto criado para aprofundamento em consumo de APIs REST utilizando PHP puro e melhor compreens�o do fluxo de requisi��es HTTP.
+## Projeto criado para aprofundamento em consumo de APIs REST utilizando PHP puro e melhor compreensão do fluxo de requisições HTTP.
