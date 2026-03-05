@@ -1,18 +1,18 @@
-# ?? Consumo da API Rest Countries com PHP Puro
+# ğŸŒ Consumo da API Rest Countries com PHP Puro
 
 Este projeto foi desenvolvido com o objetivo de praticar o consumo de APIs externas utilizando **PHP puro**, sem o uso de frameworks.
 
-A aplicação consome dados da API pública **Rest Countries** para obter informações sobre países, como nome, população, região, idioma e bandeira.
+A aplicaï¿½ï¿½o consome dados da API pï¿½blica **Rest Countries** para obter informaï¿½ï¿½es sobre paï¿½ses, como nome, populaï¿½ï¿½o, regiï¿½o, idioma e bandeira.
 
 ---
 
 ## ?? Objetivo do Projeto
 
 - Praticar consumo de API REST utilizando PHP
-- Trabalhar com requisições HTTP (GET)
+- Trabalhar com requisiï¿½ï¿½es HTTP (GET)
 - Manipular respostas em JSON
 - Organizar rotas manualmente
-- Estruturar melhor aplicações sem framework
+- Estruturar melhor aplicaï¿½ï¿½es sem framework
 
 ---
 
@@ -30,9 +30,9 @@ A aplicação consome dados da API pública **Rest Countries** para obter informaçõ
 ## ?? API Utilizada
 
 - Rest Countries API  
-- Documentação oficial: https://restcountries.com/
+- Documentaï¿½ï¿½o oficial: https://restcountries.com/
 
-A API fornece informações detalhadas sobre países ao redor do mundo.
+A API fornece informaï¿½ï¿½es detalhadas sobre paï¿½ses ao redor do mundo.
 
 Exemplo de endpoint utilizado:
 https://restcountries.com/v3.1/all?fields=name,capital,population
@@ -41,7 +41,7 @@ https://restcountries.com/v3.1/all?fields=name,capital,population
 
 ## ?? Como Executar o Projeto
 
-### 1?? Clone o repositório
+### 1?? Clone o repositï¿½rio
 git clone https://github.com/seu-usuario/seu-repositorio.git
 
 ### 2?? Acesse a pasta
@@ -56,20 +56,20 @@ http://localhost:8000
 
 ## ?? Como Funciona o Consumo da API
 
-- A aplicação faz uma requisição HTTP utilizando cURL.
-- A resposta é recebida no formato JSON.
-- O JSON é convertido para array associativo com json_decode().
-- Os dados são tratados no controller.
-- As informações são exibidas na view.
+- A aplicaï¿½ï¿½o faz uma requisiï¿½ï¿½o HTTP utilizando cURL.
+- A resposta ï¿½ recebida no formato JSON.
+- O JSON ï¿½ convertido para array associativo com json_decode().
+- Os dados sï¿½o tratados no controller.
+- As informaï¿½ï¿½es sï¿½o exibidas na view.
 
 ## ?? Conceitos Praticados
 
 - Consumo de API REST
-- Requisições HTTP com cURL
-- Manipulação de JSON
-- Organização de código em camadas
-- Separação de responsabilidades
-- Tratamento de erros de requisição
-- Estruturação de aplicação sem framework
+- Requisiï¿½ï¿½es HTTP com cURL
+- Manipulaï¿½ï¿½o de JSON
+- Organizaï¿½ï¿½o de cï¿½digo em camadas
+- Separaï¿½ï¿½o de responsabilidades
+- Tratamento de erros de requisiï¿½ï¿½o
+- Estruturaï¿½ï¿½o de aplicaï¿½ï¿½o sem framework
 
-## Projeto criado para aprofundamento em consumo de APIs REST utilizando PHP puro e melhor compreensão do fluxo de requisições HTTP.
+## Projeto criado para aprofundamento em consumo de APIs REST utilizando PHP puro e melhor compreensï¿½o do fluxo de requisiï¿½ï¿½es HTTP.
