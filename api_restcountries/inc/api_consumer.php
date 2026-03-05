@@ -32,7 +32,7 @@ class ApiConsumer {
         }
     }
 
-    // Retornando todos os países (apenas nomes, em ordem alfabética).
+    // Retornando todos os paÃ­ses (apenas nomes, em ordem alfabÃ©tica).
     public function get_all_countries() {
         $results =  $this->api('all?fields=name');
 
@@ -41,13 +41,13 @@ class ApiConsumer {
             $countries[] = $result['name']['common'];
         }
 
-        sort($countries); // Ordenando em ordem alfabética.
+        sort($countries); // Ordenando em ordem alfabÃ©tica.
         return $countries;
     }
 
     public function get_country($country_name) {
 
-        // Retornando um país específico
+        // Retornando um paÃ­s especÃ­fico
         return $this->api("name/$country_name");
     }
 }

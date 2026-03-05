@@ -3,10 +3,10 @@ defined('CONTROL') or die('Acesso invÃ¡lido.');
 
 $api = new ApiConsumer();
 
-// Pegando todos os países
+// Pegando todos os paï¿½ses
 $countries = $api->get_all_countries();
 
-// Pegando um país específico
+// Pegando um paï¿½s especï¿½fico
 //$country = $api->get_country('brazil');
 ?>
 
@@ -15,7 +15,7 @@ $countries = $api->get_all_countries();
 
     <div class="row">
         <div class="col text-center">
-            <h3>Países do mundo.</h3>
+            <h3>Paï¿½ses do mundo.</h3>
             <hr>
 
         </div>
@@ -24,10 +24,10 @@ $countries = $api->get_all_countries();
     <div class="row justify-content-center">
 
         <div class="col-4">
-            <p>Lista de países</p>
+            <p>Lista de paï¿½ses</p>
 
             <select id="select_country" class="form-select">
-                <option value="">Selecione um país</option>
+                <option value="">Selecione um paï¿½s</option>
                 <?php foreach ($countries as $country): ?>
                     <option value="<?= htmlspecialchars($country) ?>">
                         <?= htmlspecialchars($country) ?>

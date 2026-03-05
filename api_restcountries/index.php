@@ -1,7 +1,9 @@
 <?php
 
-// Definindo constante para controlar o fluxo da aplicação
+// Definindo constante para controlar o fluxo da aplica��o
 define('CONTROL', true);
+
+header('Content-Type: text/html; charset=UTF-8');
 
 // Incluindo arquivos
 $routes = require_once('inc/routes.php');
