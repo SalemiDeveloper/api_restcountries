@@ -5,6 +5,7 @@ $api = new ApiConsumer();
 $country = $_GET['contry_name'] ?? null;
 
 if (!$country) {
+    echo "caiu aqui";
     header('Location: ?route=home');
     die();
 }
