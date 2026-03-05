@@ -4,7 +4,7 @@
 define('CONTROL', true);
 
 // Incluindo arquivos
-$routes = require_once('inc/route.php');
+$routes = require_once('inc/routes.php');
 require_once('inc/api_consumer.php');
 
 // Definindo rotas
@@ -19,6 +19,12 @@ switch ($route) {
     case 'home':
         require_once 'inc/header.php';
         require_once 'scripts/home.php';
+        require_once 'inc/footer.php';
+        break;
+
+    case 'country':
+        require_once 'inc/header.php';
+        require_once 'scripts/country.php';
         require_once 'inc/footer.php';
         break;
     
