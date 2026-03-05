@@ -6,7 +6,7 @@ A aplica��o consome dados da API p�blica **Rest Countries** para obter inf
 
 ---
 
-## ?? Objetivo do Projeto
+## 🎯 Objetivo do Projeto
 
 - Praticar consumo de API REST utilizando PHP
 - Trabalhar com requisi��es HTTP (GET)
@@ -16,7 +16,7 @@ A aplica��o consome dados da API p�blica **Rest Countries** para obter inf
 
 ---
 
-## ?? Tecnologias Utilizadas
+## 🛠 Tecnologias Utilizadas
 
 - PHP (puro)
 - cURL
@@ -27,7 +27,7 @@ A aplica��o consome dados da API p�blica **Rest Countries** para obter inf
 
 ---
 
-## ?? API Utilizada
+## 🌐 API Utilizada
 
 - Rest Countries API  
 - Documenta��o oficial: https://restcountries.com/
@@ -39,22 +39,22 @@ https://restcountries.com/v3.1/all?fields=name,capital,population
 
 ---
 
-## ?? Como Executar o Projeto
+## 🚀 Como Executar o Projeto
 
-### 1?? Clone o reposit�rio
+### 1️⃣ Clone o reposit�rio
 git clone https://github.com/seu-usuario/seu-repositorio.git
 
-### 2?? Acesse a pasta
+### 2️⃣ Acesse a pasta
 cd seu-repositorio
 
-### 3?? Inicie o servidor PHPa
+### 3️⃣ Inicie o servidor PHPa
 php -S localhost:8000
 
-### 4?? Acesse no navegador
+### 4️⃣ Acesse no navegador
 http://localhost:8000
 
 
-## ?? Como Funciona o Consumo da API
+## 🔄 Como Funciona o Consumo da API
 
 - A aplica��o faz uma requisi��o HTTP utilizando cURL.
 - A resposta � recebida no formato JSON.
@@ -62,7 +62,7 @@ http://localhost:8000
 - Os dados s�o tratados no controller.
 - As informa��es s�o exibidas na view.
 
-## ?? Conceitos Praticados
+## 📚 Conceitos Praticados
 
 - Consumo de API REST
 - Requisi��es HTTP com cURL
