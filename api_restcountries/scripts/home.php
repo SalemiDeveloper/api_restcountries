@@ -47,6 +47,7 @@ $countries = $api->get_all_countries();
         const select_country = document.querySelector("#select_country");
         select_country.addEventListener('change', () => {
             const country = select_country.value;
+            console.log(country);
             window.location.href = `?route=country&country_name=`+country;
         })
     })
