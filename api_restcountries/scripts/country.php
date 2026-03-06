@@ -11,29 +11,39 @@ if (!$country) {
 
 // Pegando os dados do p�is
 $country_data = $api->get_country($country);
+
+$flags       = $country_data[0]['flags']['png'];
+$name_common = $country_data[0]['name']['common'];
+$capital     = $country_data[0]['capital'][0];
+$population  = number_format($country_data[0]['population'], 0, ',', '.');
+$currency    = array_values($country_data[0]['currencies'])[0];
+$region      = $country_data[0]['region'];
+$area        = number_format($country_data[0]['area'], 0, ',', '.');
 ?>
 
-<div class="contianer mt-5">
+<div class="container mt-5">
     <div class="d-flex">
         <div class="card p-2 shadow">
-            <img src="<?php echo $country_data[0]['flags']['png'] ?>" alt="">
+            <img src="<?php echo $flasg ?>" alt="">
         </div>
 
-        <div class="ms-5 allign-self-c">
+        <div class="ms-5 allign-self-center">
             <h3>Nome do país</h3>
-            <p class="display-3"><?php echo $country_data[0]['name']['common'] ?></p>
+            <p class="display-3"><?php echo $name_common ?></p>
             <h3>Capital:</h3>
-            <p><?php echo $country_data[0]['capital'][0] ?></p>
+            <p><?php echo $capital ?></p>
             <h3>População:</h3>
-            <p><?php echo $country_data[0]['population'] ?></p>
+            <p><?php echo $population ?></p>            
         </div>
 
     </div>
 
     <div class="row mt-3">
         <div class="col">
-            <p><strong>Região:</strong> <?php echo $country_data[0]['region']; ?></p>
-            <p><strong>Área:</strong> <?php echo $country_data[0]['area']; ?> km<sup>2</sup></p>
+            <p><strong>Região:</strong> <?php echo $region ?></p>
+            <p><strong>Área:</strong> <?php echo $area ?> km<sup>2</sup></p>            
+            <p><strong>Moeda:</strong><?php echo $currency['symbol'] ?> - <?php echo $currency['name'] ?></p>
+
         </div>
     </div>
 
