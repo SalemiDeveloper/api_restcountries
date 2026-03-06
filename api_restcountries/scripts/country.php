@@ -24,7 +24,7 @@ $area        = number_format($country_data[0]['area'], 0, ',', '.');
 <div class="container mt-5">
     <div class="d-flex">
         <div class="card p-2 shadow">
-            <img src="<?php echo $flasg ?>" alt="">
+            <img src="<?php echo $flags ?>" alt="">
         </div>
 
         <div class="ms-5 allign-self-center">
