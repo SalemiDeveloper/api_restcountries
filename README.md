@@ -42,10 +42,10 @@ https://restcountries.com/v3.1/all?fields=name,capital,population
 ## 🚀 Como Executar o Projeto
 
 ### 1️⃣ Clone o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/SalemiDeveloper/api_restcountries.git
 
 ### 2️⃣ Acesse a pasta
-cd seu-repositorio
+cd api_restcountries
 
 ### 3️⃣ Inicie o servidor PHP
 php -S localhost:8001
