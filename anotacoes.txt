@@ -1,5 +1,5 @@
-1 - Formatar números.
-2 - Mostrar o país no mapa.
-3 - Mostrar informações mais completas.
-4 - Criar comparação.
-5 - Estatísticas globais.
+1 - Formatar números.                     - ok
+2 - Mostrar o país no mapa.                - 
+3 - Mostrar informações mais completas.  - 
+4 - Criar comparação.                    - 
+5 - Estatísticas globais.                  - 
