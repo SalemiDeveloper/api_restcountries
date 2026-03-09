@@ -21,10 +21,20 @@ $region      = $country_data[0]['region'];
 $area        = number_format($country_data[0]['area'], 0, ',', '.');
 $lat         = $country_data[0]['latlng'][0];
 $lng         = $country_data[0]['latlng'][1];
+$cca3        = $country_data[0]['cca3'];
+$borders     = $country_data[0]['borders'] ?? [];
+
+if (!empty($borders)) {
+    $codes = implode(',', $borders);
+    $neighbors = $api->get_neighbors($codes);
+}
 ?>
 
-
 <div class="container mt-5">
+    <div class="mb-4">
+        <a href="?route=home" class="btn btn-primary px-5">Início</a>
+    </div>
+    
     <div class="d-flex">
         <div class="card p-2 shadow">
             <img src="<?php echo $flags ?>" alt="">
@@ -35,31 +45,55 @@ $lng         = $country_data[0]['latlng'][1];
             <p class="display-3"><?php echo $name_common ?></p>
             <h3>Capital:</h3>
             <p><?php echo $capital ?></p>
-            <h3>População:</h3>
-            <p><?php echo $population ?></p>            
         </div>
 
     </div>
 
     <div class="row mt-3">
         <div class="col">
+            <p><strong>População:</strong> <?php echo $population ?></p>
             <p><strong>Região:</strong> <?php echo $region ?></p>
+        </div>
+        <div class="col">
             <p><strong>Área:</strong> <?php echo $area ?> km<sup>2</sup></p>            
             <p><strong>Moeda:</strong> <?php echo $currency['symbol'] ?> - <?php echo $currency['name'] ?></p>
 
         </div>
     </div>
 
-    <div>
-        <a href="?route=home" class="btn btn-primary px-5">Voltar</a>
+    <div class="row my-4">
+        <div class="col-md-8 mx-auto">
+            <h4>Localização no mapa</h4>
+            <div id="map" style="height:350px; border-radius:10px;"></div>
+        </div>
     </div>
 
+    <div class="mt-4">
+    <h4>Países vizinhos</h4>
+
+    <?php if (!empty($neighbors)): ?>
+        <?php foreach ($neighbors as $neighbor): ?>
+
+    <a class="btn btn-outline-primary btn-sm me-2 mb-2"
+    href="?route=country&country_name=<?php echo $neighbor['name']['common'] ?>">
+    <?php echo $neighbor['name']['common'] ?>
+    </a>
+
+    <?php endforeach; ?>
+
+    <?php else: ?>
+
+    <p>Este país não possui fronteiras terrestres.</p>
+
+    <?php endif; ?>
+
+    </div>
+
+
+
 </div>
 
-<div class="mt-4">
-    <h4>Localização no mapa</h4>
-    <div id="map" style="height:400px;"></div>
-</div>
+
 
 <script>
 
@@ -74,5 +108,23 @@ L.marker([<?php echo $lat ?>, <?php echo $lng ?>])
     .bindPopup('<?php echo $name_common ?>')
     .openPopup();
 
+
+const countryCode = "<?php echo $cca3 ?>";
+
+fetch(`https://raw.githubusercontent.com/johan/world.geo.json/master/countries/${countryCode}.geo.json`)
+  .then(response => response.json())
+  .then(data => {
+
+    const geoLayer = L.geoJSON(data, {
+        style: {
+            color: "#ff0000",
+            weight: 2,
+            fillOpacity: 0.2
+        }
+    }).addTo(map);
+
+    map.fitBounds(geoLayer.getBounds());
+
+  });
 </script>
 

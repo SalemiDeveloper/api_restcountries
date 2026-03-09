@@ -52,4 +52,10 @@ class ApiConsumer {
         // Retornando um país específico
         return $this->api("name/" . rawurlencode($country_name) . "?fullText=true");
     }
+
+    public function get_neighbors($codes) {
+
+        // Retornando os países que fazem fronteira
+        return $this->api("alpha?codes=" . $codes);
+    }
 }
