@@ -19,7 +19,10 @@ $population  = number_format($country_data[0]['population'], 0, ',', '.');
 $currency    = array_values($country_data[0]['currencies'])[0];
 $region      = $country_data[0]['region'];
 $area        = number_format($country_data[0]['area'], 0, ',', '.');
+$lat         = $country_data[0]['latlng'][0];
+$lng         = $country_data[0]['latlng'][1];
 ?>
+
 
 <div class="container mt-5">
     <div class="d-flex">
@@ -42,7 +45,7 @@ $area        = number_format($country_data[0]['area'], 0, ',', '.');
         <div class="col">
             <p><strong>Região:</strong> <?php echo $region ?></p>
             <p><strong>Área:</strong> <?php echo $area ?> km<sup>2</sup></p>            
-            <p><strong>Moeda:</strong><?php echo $currency['symbol'] ?> - <?php echo $currency['name'] ?></p>
+            <p><strong>Moeda:</strong> <?php echo $currency['symbol'] ?> - <?php echo $currency['name'] ?></p>
 
         </div>
     </div>
@@ -52,4 +55,24 @@ $area        = number_format($country_data[0]['area'], 0, ',', '.');
     </div>
 
 </div>
+
+<div class="mt-4">
+    <h4>Localização no mapa</h4>
+    <div id="map" style="height:400px;"></div>
+</div>
+
+<script>
+
+var map = L.map('map').setView([<?php echo $lat ?>, <?php echo $lng ?>], 4);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+L.marker([<?php echo $lat ?>, <?php echo $lng ?>])
+    .addTo(map)
+    .bindPopup('<?php echo $name_common ?>')
+    .openPopup();
+
+</script>
 
