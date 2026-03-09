@@ -1,5 +1,13 @@
 1 - Formatar n√∫meros.                     - ok
-2 - Mostrar o pa√≠s no mapa.                - 
+2 - Mostrar o pa√≠s no mapa.                - ok
 3 - Mostrar informa√ß√µes mais completas.  - 
 4 - Criar compara√ß√£o.                    - 
 5 - Estat√≠sticas globais.                  - 
+    . maior populaÁ„o
+    . maior territÛrio
+    . menor paÌs
+    . continente com mais paÌse (exemplos)
+6 - Gr·ficos
+7 - Filtro por continente
+8 - Favoritar paÌses
+9 - 
