@@ -64,7 +64,7 @@ if (!empty($borders)) {
     <div class="row my-4">
         <div class="col-md-8 mx-auto">
             <h4>Localização no mapa</h4>
-            <div id="map" style="height:350px; border-radius:10px;"></div>
+            <div id="map" style="height:300px; border-radius:10px;"></div>
         </div>
     </div>
 
