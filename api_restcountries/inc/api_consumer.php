@@ -63,7 +63,7 @@ class ApiConsumer {
 
         $most_populous = null;
         $teste = array();
-        $countries = $this->api('all?fields=name,population');
+        $countries = $this->api('all?fields=name,population,flags');
 
         foreach ($countries as $country) {
             $teste[] = $country['population'];
@@ -72,7 +72,8 @@ class ApiConsumer {
 
                 $most_populous = [
                     'name' => $country['name']['common'],
-                    'population' => $country['population']
+                    'population' => $country['population'],
+                    'flag' => $country['flags']['png']
                 ];
             }
         }
@@ -83,7 +84,7 @@ class ApiConsumer {
 
     public function get_least_populous() {
         $least_populous = null;
-        $countries = $this->api('all?fields=name,population');
+        $countries = $this->api('all?fields=name,population,flags');
 
         foreach ($countries as $country) {
 
@@ -91,7 +92,8 @@ class ApiConsumer {
 
                 $least_populous = [
                     'name' => $country['name']['common'],
-                    'population' => $country['population']
+                    'population' => $country['population'],
+                    'flag' => $country['flags']['png']
                 ];
             }
         }
@@ -102,14 +104,15 @@ class ApiConsumer {
 
     public function get_largest_area() {
         $largest = null;
-        $countries = $this->api('all?fields=name,area');
+        $countries = $this->api('all?fields=name,area,flags');
 
         foreach($countries as $country) {
             if ($largest == null || $country['area'] > $largest['area']) {
 
                 $largest = [
                     'name' => $country['name']['common'],
-                    'area' => $country['area']
+                    'area' => $country['area'],
+                    'flag' => $country['flags']['png']
                 ];
             }
         }
@@ -119,14 +122,15 @@ class ApiConsumer {
 
         public function get_smallest_area() {
         $smallest = null;
-        $countries = $this->api('all?fields=name,area');
+        $countries = $this->api('all?fields=name,area,flags');
 
         foreach($countries as $country) {
             if ($smallest == null || $country['area'] < $smallest['area']) {
 
                 $smallest = [
                     'name' => $country['name']['common'],
-                    'area' => $country['area']
+                    'area' => $country['area'],
+                    'flag' => $country['flags']['png']
                 ];
             }
         }
