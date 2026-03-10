@@ -4,10 +4,11 @@ defined('CONTROL') or die('Acesso inválido.');
 $api = new ApiConsumer();
 
 // Pegando todos os pa�ses
-$countries = $api->get_all_countries();
-
-// Pegando um pa�s espec�fico
-//$country = $api->get_country('brazil');
+$countries_name = $api->get_all_countries_name();
+$most_populous  = $api->get_most_populous();
+$least_populous = $api->get_least_populous();
+$largest_area   = $api->get_largest_area();
+$smallest_area  = $api->get_smallest_area();
 ?>
 
 <html lang="pt-br">
@@ -28,7 +29,7 @@ $countries = $api->get_all_countries();
 
             <select id="select_country" class="form-select">
                 <option value="">Selecione um país</option>
-                <?php foreach ($countries as $country): ?>
+                <?php foreach ($countries_name as $country): ?>
                     <option value="<?= htmlspecialchars($country) ?>">
                         <?= htmlspecialchars($country) ?>
                     </option>
@@ -37,6 +38,51 @@ $countries = $api->get_all_countries();
             
         </div>
 
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-10 mx-auto">
+
+            <h4 class="text-center">Estatísticas Globais</h4>
+            <hr>
+
+            <div class="row text-center">
+
+                <div class="col-md-3">
+                    <div class="card shadow-sm p-3">
+                        <h6>Maior população</h6>
+                        <strong><?= $most_populous['name'] ?></strong>
+                        <p><?= number_format($most_populous['population'],0,',','.') ?></p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card shadow-sm p-3">
+                        <h6>Menor população</h6>
+                        <strong><?= $least_populous['name'] ?></strong>
+                        <p><?= number_format($least_populous['population'],0,',','.') ?></p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card shadow-sm p-3">
+                        <h6>Maior território</h6>
+                        <strong><?= $largest_area['name'] ?></strong>
+                        <p><?= number_format($largest_area['area'],0,',','.') ?> km²</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card shadow-sm p-3">
+                        <h6>Menor território</h6>
+                        <strong><?= $smallest_area['name'] ?></strong>
+                        <p><?= number_format($smallest_area['area'],0,',','.') ?> km²</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 </div>
 

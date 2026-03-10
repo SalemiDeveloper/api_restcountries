@@ -35,7 +35,7 @@ class ApiConsumer {
     }
 
     // Retornando todos os países (apenas nomes, em ordem alfabética).
-    public function get_all_countries() {
+    public function get_all_countries_name() {
         $results =  $this->api('all?fields=name');
 
         $countries = array();
@@ -57,5 +57,80 @@ class ApiConsumer {
 
         // Retornando os países que fazem fronteira
         return $this->api("alpha?codes=" . $codes);
+    }
+
+    public function get_most_populous() {
+
+        $most_populous = null;
+        $teste = array();
+        $countries = $this->api('all?fields=name,population');
+
+        foreach ($countries as $country) {
+            $teste[] = $country['population'];
+
+            if ($most_populous == null || $country['population'] > $most_populous['population']) {
+
+                $most_populous = [
+                    'name' => $country['name']['common'],
+                    'population' => $country['population']
+                ];
+            }
+        }
+
+        // Retornando o país mais populoso
+        return $most_populous;
+    }
+
+    public function get_least_populous() {
+        $least_populous = null;
+        $countries = $this->api('all?fields=name,population');
+
+        foreach ($countries as $country) {
+
+            if ($least_populous == null || $country['population'] < $least_populous['population'] && $country['population'] != 0) {
+
+                $least_populous = [
+                    'name' => $country['name']['common'],
+                    'population' => $country['population']
+                ];
+            }
+        }
+
+        // Retornando o país menos populoso
+        return $least_populous;
+    }
+
+    public function get_largest_area() {
+        $largest = null;
+        $countries = $this->api('all?fields=name,area');
+
+        foreach($countries as $country) {
+            if ($largest == null || $country['area'] > $largest['area']) {
+
+                $largest = [
+                    'name' => $country['name']['common'],
+                    'area' => $country['area']
+                ];
+            }
+        }
+
+        return $largest;
+    }
+
+        public function get_smallest_area() {
+        $smallest = null;
+        $countries = $this->api('all?fields=name,area');
+
+        foreach($countries as $country) {
+            if ($smallest == null || $country['area'] < $smallest['area']) {
+
+                $smallest = [
+                    'name' => $country['name']['common'],
+                    'area' => $country['area']
+                ];
+            }
+        }
+
+        return $smallest;
     }
 }
