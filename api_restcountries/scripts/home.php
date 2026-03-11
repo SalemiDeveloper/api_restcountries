@@ -90,6 +90,39 @@ $smallest_area  = $api->get_smallest_area();
     </div>
 </div>
 
+
+<div class="row mt-4 justify-content-center">
+
+    <div class="col-md-3">
+        <select id="country1" class="form-select">
+            <option value="">País 1</option>
+            <?php foreach ($countries_name as $country): ?>
+                <option value="<?= htmlspecialchars($country) ?>">
+                    <?= htmlspecialchars($country) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <select id="country2" class="form-select">
+            <option value="">País 2</option>
+            <?php foreach ($countries_name as $country): ?>
+                <option value="<?= htmlspecialchars($country) ?>">
+                    <?= htmlspecialchars($country) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <button id="compare_btn" class="btn btn-primary w-100">
+            Comparar
+        </button>
+    </div>
+
+</div>
+
 <script>
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -97,8 +130,28 @@ $smallest_area  = $api->get_smallest_area();
         const select_country = document.querySelector("#select_country");
         select_country.addEventListener('change', () => {
             const country = select_country.value;
-            console.log(country);
             window.location.href = `?route=country&country_name=`+country;
         })
     })
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const compareBtn = document.querySelector("#compare_btn");
+
+        compareBtn.addEventListener('click', () => {
+
+            const country1 = document.querySelector("#country1").value;
+            const country2 = document.querySelector("#country2").value;
+
+            if (!country1 || !country2) {
+                alert("Selecione dois países para comparar");
+                return;
+            }
+
+            window.location.href =
+                `?route=compare&country1=${country1}&country2=${country2}`;
+        });
+
+    });
 </script>

@@ -3,5 +3,6 @@
 return [
     '404',
     'home',
-    'country'
+    'country',
+    'compare'
 ];

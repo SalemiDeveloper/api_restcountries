@@ -29,6 +29,14 @@ switch ($route) {
         require_once 'scripts/country.php';
         require_once 'inc/footer.php';
         break;
+
+    //Teste comparação -----------------
+    case 'compare':
+        require_once 'inc/header.php';
+        require_once 'scripts/compare.php';
+        require_once 'inc/footer.php';
+        break;
+    //----------------------------------
     
     case '404':
         require_once 'inc/header.php';
