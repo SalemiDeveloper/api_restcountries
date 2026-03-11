@@ -1,13 +1,14 @@
-1 - Formatar nÃºmeros.                     - ok
-2 - Mostrar o paÃ­s no mapa.                - ok
+1 - Formatar nÃºmeros.                    - ok
+2 - Mostrar o paÃ­s no mapa.              - ok
 3 - Mostrar informaÃ§Ãµes mais completas.  - 
 4 - Criar comparaÃ§Ã£o.                    - 
-5 - EstatÃ­sticas globais.                  - 
-    . maior população
-    . maior território
-    . menor país
-    . continente com mais paíse (exemplos)
-6 - Gráficos
+5 - EstatÃ­sticas globais.                - ok 
+    . maior populaï¿½ï¿½o
+    . maior territï¿½rio
+    . menor paï¿½s
+    . continente com mais paï¿½se (exemplos)
+6 - Grï¿½ficos
 7 - Filtro por continente
-8 - Favoritar países
-9 - 
+8 - Favoritar paï¿½ses
+9 - PÃ¡gina de Rankings
+10 - Barra comparativa                   - ok
