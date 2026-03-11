@@ -22,7 +22,7 @@ A aplicação consome dados da API pública **Rest Countries** para obter inform
 - cURL
 - JSON
 - HTML
-- CSS
+- CSS (Bootstrap)
 - Servidor local (XAMPP, WAMP, Laragon ou PHP Built-in Server)
 
 ---
