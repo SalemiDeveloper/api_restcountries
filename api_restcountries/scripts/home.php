@@ -115,9 +115,7 @@ $smallest_area  = $api->get_smallest_area();
                         class="stretched-link"></a>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 
@@ -125,7 +123,6 @@ $smallest_area  = $api->get_smallest_area();
 
         <h4 class="col-md-3 text-center">Compare os Países</h4>
         <hr>
-
         <div class="col-md-3">
             <select id="country1" class="form-select">
                 <option value="">País 1</option>
@@ -153,78 +150,7 @@ $smallest_area  = $api->get_smallest_area();
                 Comparar
             </button>
         </div>
-
     </div>
-
 </div>
 
 
-
-
-<script>
-
-    /*  Quando o usuário mudar o país no <select> irá pegar o país escolhido e 
-        redirecionar a página passando o mesmo pela URL.    */
-    document.addEventListener('DOMContentLoaded', () => {
-
-        const select_country = document.querySelector("#select_country");
-        select_country.addEventListener('change', () => {
-            const country = select_country.value;
-            window.location.href = `?route=country&country_name=`+country;
-        })
-    })
-
-
-    document.addEventListener('DOMContentLoaded', () => {
-
-        const compareBtn = document.querySelector("#compare_btn");
-
-        compareBtn.addEventListener('click', () => {
-
-            const country1 = document.querySelector("#country1").value;
-            const country2 = document.querySelector("#country2").value;
-
-            if (!country1 || !country2) {
-                alert("Selecione dois países para comparar");
-                return;
-            }
-
-            window.location.href =
-                `?route=compare&country1=${country1}&country2=${country2}`;
-        });
-
-    });
-
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    const colorThief = new ColorThief();
-
-    const cards = document.querySelectorAll(".country-card");
-
-    cards.forEach(card => {
-
-        const img = card.querySelector(".country-flag");
-
-        function aplicarCores(){
-
-            const palette = colorThief.getPalette(img, 2);
-            const c1 = `rgb(${palette[0][0]},${palette[0][1]},${palette[0][2]})`;
-            const c2 = `rgb(${palette[1][0]},${palette[1][1]},${palette[1][2]})`;
-            const gradient = `linear-gradient(45deg, ${c1}, ${c2})`;
-
-            card.dataset.gradient = gradient;
-            card.style.setProperty("--gradient", gradient);
-
-        }
-
-        if (img.complete) {
-            aplicarCores();
-        } else {
-            img.addEventListener("load", aplicarCores);
-        }
-
-    });
-
-});
-</script>
