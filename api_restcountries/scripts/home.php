@@ -163,6 +163,8 @@ $smallest_area  = $api->get_smallest_area();
 
 <script>
 
+    /*  Quando o usuário mudar o país no <select> irá pegar o país escolhido e 
+        redirecionar a página passando o mesmo pela URL.    */
     document.addEventListener('DOMContentLoaded', () => {
 
         const select_country = document.querySelector("#select_country");
