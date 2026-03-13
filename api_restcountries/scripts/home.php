@@ -49,11 +49,19 @@ $smallest_area  = $api->get_smallest_area();
             <div class="row text-left">
 
                 <div class="col-md-3 d-flex">
-                    <div class="card shadow-sm p-3 w-100 bg-light">
+                    <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
                         <h6>Maior população</h6>
                         <strong><?= $most_populous['name'] ?></strong>
                         <p><?= number_format($most_populous['population'],0,',','.') ?></p>
-                        <img src="<?= $most_populous['flag'] ?>" width="40" class="bg-secondary p-1 rounded">
+
+                        <img 
+                        class="country-flag bg-secondary p-1 rounded"
+                        src="<?= $most_populous['flag'] ?>" 
+                        crossorigin="anonymous"
+                        width="40">
+
+                        <a href="?route=country&country_name=<?= urlencode($most_populous['name']) ?>" 
+                        class="stretched-link"></a>
                     </div>
                 </div>
 
@@ -88,40 +96,46 @@ $smallest_area  = $api->get_smallest_area();
 
         </div>
     </div>
+
+    <div class="row mt-4 justify-content-center">
+
+        <h4 class="col-md-3 text-center">Compare os Países</h4>
+        <hr>
+
+        <div class="col-md-3">
+            <select id="country1" class="form-select">
+                <option value="">País 1</option>
+                <?php foreach ($countries_name as $country): ?>
+                    <option value="<?= htmlspecialchars($country) ?>">
+                        <?= htmlspecialchars($country) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <select id="country2" class="form-select">
+                <option value="">País 2</option>
+                <?php foreach ($countries_name as $country): ?>
+                    <option value="<?= htmlspecialchars($country) ?>">
+                        <?= htmlspecialchars($country) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <button id="compare_btn" class="btn btn-primary w-100">
+                Comparar
+            </button>
+        </div>
+
+    </div>
+
 </div>
 
 
-<div class="row mt-4 justify-content-center">
 
-    <div class="col-md-3">
-        <select id="country1" class="form-select">
-            <option value="">País 1</option>
-            <?php foreach ($countries_name as $country): ?>
-                <option value="<?= htmlspecialchars($country) ?>">
-                    <?= htmlspecialchars($country) ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-    </div>
-
-    <div class="col-md-3">
-        <select id="country2" class="form-select">
-            <option value="">País 2</option>
-            <?php foreach ($countries_name as $country): ?>
-                <option value="<?= htmlspecialchars($country) ?>">
-                    <?= htmlspecialchars($country) ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-    </div>
-
-    <div class="col-md-2">
-        <button id="compare_btn" class="btn btn-primary w-100">
-            Comparar
-        </button>
-    </div>
-
-</div>
 
 <script>
 
@@ -154,4 +168,37 @@ $smallest_area  = $api->get_smallest_area();
         });
 
     });
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const colorThief = new ColorThief();
+
+    const cards = document.querySelectorAll(".country-card");
+
+    cards.forEach(card => {
+
+        const img = card.querySelector(".country-flag");
+
+        function aplicarCores(){
+
+            const palette = colorThief.getPalette(img, 2);
+            const c1 = `rgb(${palette[0][0]},${palette[0][1]},${palette[0][2]})`;
+            const c2 = `rgb(${palette[1][0]},${palette[1][1]},${palette[1][2]})`;
+            const gradient = `linear-gradient(45deg, ${c1}, ${c2})`;
+
+            card.dataset.gradient = gradient;
+            card.style.setProperty("--gradient", gradient);
+
+        }
+
+        if (img.complete) {
+            aplicarCores();
+        } else {
+            img.addEventListener("load", aplicarCores);
+        }
+
+    });
+
+});
 </script>

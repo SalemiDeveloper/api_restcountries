@@ -1,0 +1,10 @@
+.country-card{
+transition: all 0.2s ease;
+border:1px solid #76797c;
+cursor:pointer;
+}
+
+.country-card:hover{
+transform: translateY(-10px);
+border-image: var(--gradient) 1;
+}
