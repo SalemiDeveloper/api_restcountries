@@ -1,7 +1,7 @@
 1 - Formatar números.                    - ok
 2 - Mostrar o país no mapa.              - ok
 3 - Mostrar informações mais completas.  - 
-4 - Criar comparação.                    - 
+4 - Criar comparação.                    - ok
 5 - Estatísticas globais.                - ok 
     . maior popula��o
     . maior territ�rio
@@ -12,3 +12,5 @@
 8 - Favoritar pa�ses
 9 - Página de Rankings
 10 - Barra comparativa                   - ok
+
+IMPLEMENTAR A BORDA GRADIENTE EM country.php
