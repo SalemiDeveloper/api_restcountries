@@ -66,29 +66,53 @@ $smallest_area  = $api->get_smallest_area();
                 </div>
 
                 <div class="col-md-3 d-flex">
-                    <div class="card shadow-sm p-3 w-100 bg-light">
+                    <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
                         <h6>Menor população</h6>
                         <strong><?= $least_populous['name'] ?></strong>
                         <p><?= number_format($least_populous['population'],0,',','.') ?></p>
-                        <img src="<?= $least_populous['flag'] ?>" width="40" class="bg-secondary p-1 rounded">
+
+                        <img 
+                        class="country-flag bg-secondary p-1 rounded"
+                        src="<?= $least_populous['flag'] ?>" 
+                        crossorigin="anonymous"
+                        width="40">
+
+                        <a href="?route=country&country_name=<?= urlencode($least_populous['name']) ?>" 
+                        class="stretched-link"></a>
                     </div>
-                </div>
+                </div>                
 
                 <div class="col-md-3 d-flex">
-                    <div class="card shadow-sm p-3 w-100 bg-light">
+                    <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
                         <h6>Maior território</h6>
                         <strong><?= $largest_area['name'] ?></strong>
-                        <p><?= number_format($largest_area['area'],0,',','.') ?> km²</p>
-                        <img src="<?= $largest_area['flag'] ?>" width="40" class="bg-secondary p-1 rounded">
+                        <p><?= number_format($largest_area['area'],0,',','.') ?></p>
+
+                        <img 
+                        class="country-flag bg-secondary p-1 rounded"
+                        src="<?= $largest_area['flag'] ?>" 
+                        crossorigin="anonymous"
+                        width="40">
+
+                        <a href="?route=country&country_name=<?= urlencode($largest_area['name']) ?>" 
+                        class="stretched-link"></a>
                     </div>
                 </div>
 
                 <div class="col-md-3 d-flex">
-                    <div class="card shadow-sm p-3 w-100 bg-light">
-                        <h6>Menor território</h6>
+                    <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
+                        <h6>Menor Território</h6>
                         <strong><?= $smallest_area['name'] ?></strong>
-                        <p><?= number_format($smallest_area['area'],2,',','.') ?> km²</p>
-                        <img src="<?= $smallest_area['flag'] ?>" width="40" class="bg-secondary p-1 rounded">
+                        <p><?= number_format($smallest_area['area'],0,',','.') ?></p>
+
+                        <img 
+                        class="country-flag bg-secondary p-1 rounded"
+                        src="<?= $smallest_area['flag'] ?>" 
+                        crossorigin="anonymous"
+                        width="40">
+
+                        <a href="?route=country&country_name=<?= urlencode($smallest_area['name']) ?>" 
+                        class="stretched-link"></a>
                     </div>
                 </div>
 

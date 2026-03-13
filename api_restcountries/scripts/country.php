@@ -36,7 +36,7 @@ if (!empty($borders)) {
     </div>
     
     <div class="d-flex">
-        <div class="card p-2 shadow">
+        <div class="card p-2 shadow bg-secondary">
             <img src="<?php echo $flags ?>" alt="">
         </div>
 

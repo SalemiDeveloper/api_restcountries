@@ -1,6 +1,6 @@
 .country-card{
 transition: all 0.2s ease;
-border:1px solid #76797c;
+border:2px solid #76797c;
 cursor:pointer;
 }
 
