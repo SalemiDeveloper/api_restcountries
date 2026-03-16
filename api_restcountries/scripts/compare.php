@@ -40,6 +40,9 @@ $area2_percent = ($c2['area'] / $max_area) * 100;
 ?>
 
 <div class="container mt-5">
+    <div class="mb-4">
+        <a href="?route=home" class="btn btn-primary px-5">Início</a>
+    </div>
     <h3 class="text-center">Comparação de países</h3>
     <hr>
     <div class="row text-center">

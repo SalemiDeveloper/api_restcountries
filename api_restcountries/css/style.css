@@ -9,8 +9,7 @@ transform: translateY(-10px);
 border-image: var(--gradient) 1;
 }
 
-.card-teste{
-    border:2px solid transparent;
-    border-image: var(--country-gradient);
-    border-image-slice: 1;
+.teste-card{
+    border:3px solid transparent;
+    border-image: var(--gradient) 1;
 }

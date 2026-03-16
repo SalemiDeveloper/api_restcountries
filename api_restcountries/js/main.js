@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
         initCountryCards();
     }
 
-    if (document.querySelector(".card-teste")){
+    if (document.querySelector(".teste-card")){
         initCountryPage();
     }
 
@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 function initCountrySelect() {
-    /*  - Lista Países
-    Quando o usuário mudar o país no <select> irá pegar o país escolhido e 
-    redirecionar a página passando o mesmo pela URL.    */
+    /*  - Lista Paï¿½ses
+    Quando o usuï¿½rio mudar o paï¿½s no <select> irï¿½ pegar o paï¿½s escolhido e 
+    redirecionar a pï¿½gina passando o mesmo pela URL.    */
 
     const select_country = document.querySelector("#select_country");
     
@@ -31,8 +31,8 @@ function initCountrySelect() {
 }
 
 function initCompareSelect() {
-    /* - Comparação de Países
-    Quando o usuário selecionar os dois países em cada <select> irá redirecionar
+    /* - Comparaï¿½ï¿½o de Paï¿½ses
+    Quando o usuï¿½rio selecionar os dois paï¿½ses em cada <select> irï¿½ redirecionar
     para compare.php.  */
     const compareBtn = document.querySelector("#compare_btn");
 
@@ -42,7 +42,7 @@ function initCompareSelect() {
         const country2 = document.querySelector("#country2").value;
 
         if (!country1 || !country2) {
-            alert("Selecione dois países para comparar");
+            alert("Selecione dois paï¿½ses para comparar");
             return;
         }
 
@@ -51,10 +51,22 @@ function initCompareSelect() {
     });
 }
 
+function initCountryPage(){
+
+    const card = document.querySelector(".teste-card");
+    if(!card) return;
+
+    const img = card.querySelector("img");
+
+    if(img.complete){
+        aplicarCores(img, card);
+    }else{
+        img.addEventListener("load", () => aplicarCores(img, card));
+    }
+
+}
+
 function initCountryCards() {
-    /* - Estatísticas Globais
-    Implementação do hover no CSS.  */
-    const colorThief = new ColorThief();
 
     const cards = document.querySelectorAll(".country-card");
 
@@ -62,53 +74,26 @@ function initCountryCards() {
 
         const img = card.querySelector(".country-flag");
 
-        function aplicarCores(){
-
-            const palette = colorThief.getPalette(img, 2);
-            const c1 = `rgb(${palette[0][0]},${palette[0][1]},${palette[0][2]})`;
-            const c2 = `rgb(${palette[1][0]},${palette[1][1]},${palette[1][2]})`;
-            const gradient = `linear-gradient(45deg, ${c1}, ${c2})`;
-
-            card.dataset.gradient = gradient;
-            card.style.setProperty("--gradient", gradient);
-
-        }
-
         if (img.complete) {
-            aplicarCores();
+            aplicarCores(img, card);
         } else {
-            img.addEventListener("load", aplicarCores);
+            img.addEventListener("load", () => aplicarCores(img, card));
         }
 
     });
 }
 
-// CONSERTAR - NÃO ESTÁ FUNCIONANDO
-function initCountryPage(){
-
-    /* - country.php
-       Implementando gradiente na borda.
-    */
-    const img = document.querySelector(".card-teste");
+function aplicarCores(img, elemento) {
 
     const colorThief = new ColorThief();
 
-    function aplicarCores(){
+    const palette = colorThief.getPalette(img, 2);
 
-        const palette = colorThief.getPalette(img, 2);
+    const c1 = `rgb(${palette[0][0]},${palette[0][1]},${palette[0][2]})`;
+    const c2 = `rgb(${palette[1][0]},${palette[1][1]},${palette[1][2]})`;
 
-        const c1 = `rgb(${palette[0][0]},${palette[0][1]},${palette[0][2]})`;
-        const c2 = `rgb(${palette[1][0]},${palette[1][1]},${palette[1][2]})`;
+    const gradient = `linear-gradient(45deg, ${c1}, ${c2})`;
 
-        const gradient = `linear-gradient(45deg, ${c1}, ${c2})`;
-
-        img.style.setProperty("--country-gradient", gradient);
-    }
-
-    if(img.complete){
-        aplicarCores();
-    }else{
-        img.addEventListener("load", aplicarCores);
-    }
-
+    elemento.dataset.gradient = gradient;
+    elemento.style.setProperty("--gradient", gradient);
 }

@@ -35,18 +35,15 @@ if (!empty($borders)) {
         <a href="?route=home" class="btn btn-primary px-5">Início</a>
     </div>
     
-    <!-- COLOCAR BORDA GRADIENTE COM AS CORES DA BANDEIRA
-         IGUAL EM home.php -->
     <div class="d-flex">
-        <div class="card card-teste p-2 shadow bg-secondary">
+        <div class="card teste-card p-2 shadow bg-light">
             <img src="<?php echo $flags ?>" crossorigin="anonymous">
         </div>
 
         <div class="ms-5 allign-self-center">
             <h3>Nome do país</h3>
             <p class="display-3"><?php echo $name_common ?></p>
-            <h3>Capital:</h3>
-            <p><?php echo $capital ?></p>
+            <p><strong>Capital: </strong><?php echo $capital ?></p>
         </div>
 
     </div>
