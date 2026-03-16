@@ -49,7 +49,7 @@ $smallest_area  = $api->get_smallest_area();
             <div class="row text-left">
 
                 <div class="col-md-3 d-flex">
-                    <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
+                    <div class="card home-card shadow-sm p-3 w-100 bg-light position-relative">
                         <h6>Maior população</h6>
                         <strong><?= $most_populous['name'] ?></strong>
                         <p><?= number_format($most_populous['population'],0,',','.') ?> habitantes</p>
@@ -66,7 +66,7 @@ $smallest_area  = $api->get_smallest_area();
                 </div>
 
                 <div class="col-md-3 d-flex">
-                    <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
+                    <div class="card home-card shadow-sm p-3 w-100 bg-light position-relative">
                         <h6>Menor população</h6>
                         <strong><?= $least_populous['name'] ?></strong>
                         <p><?= number_format($least_populous['population'],0,',','.') ?> habitantes</p>
@@ -83,7 +83,7 @@ $smallest_area  = $api->get_smallest_area();
                 </div>                
 
                 <div class="col-md-3 d-flex">
-                    <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
+                    <div class="card home-card shadow-sm p-3 w-100 bg-light position-relative">
                         <h6>Maior território</h6>
                         <strong><?= $largest_area['name'] ?></strong>
                         <p><?= number_format($largest_area['area'],0,',','.') ?> km<sup>2</sup></p>
@@ -100,7 +100,7 @@ $smallest_area  = $api->get_smallest_area();
                 </div>
 
                 <div class="col-md-3 d-flex">
-                    <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
+                    <div class="card home-card shadow-sm p-3 w-100 bg-light position-relative">
                         <h6>Menor Território</h6>
                         <strong><?= $smallest_area['name'] ?></strong>
                         <p><?= number_format($smallest_area['area'],2,',','.') ?> km<sup>2</sup></p>

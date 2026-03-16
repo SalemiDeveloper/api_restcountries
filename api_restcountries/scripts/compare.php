@@ -17,20 +17,17 @@ $data2 = $api->get_country($country2);
 
 $c1 = $data1[0];
 $c2 = $data2[0];
-
-// Barras comparativas
-$pop1 = $c1['population'];
-$pop2 = $c2['population'];
-
-$most_populous = $api->get_most_populous();
+$pop1  = $c1['population'];
+$pop2  = $c2['population'];
+$name1 = $c1['name']['common'];
+$name2 = $c2['name']['common'];
+$most_populous  = $api->get_most_populous();
 $max_population = $most_populous['population'];
-$largest_area = $api->get_largest_area();
-
-$pop1_percent = ($c1['population'] / $max_population) * 100;
-$pop2_percent = ($c2['population'] / $max_population) * 100;
-
-$area1 = $c1['area'];
-$area2 = $c2['area'];
+$largest_area   = $api->get_largest_area();
+$pop1_percent   = ($c1['population'] / $max_population) * 100;
+$pop2_percent   = ($c2['population'] / $max_population) * 100;
+$area1  = $c1['area'];
+$area2  = $c2['area'];
 
 $max_area = $largest_area['area'];
 
@@ -48,15 +45,20 @@ $area2_percent = ($c2['area'] / $max_area) * 100;
     <div class="row text-center">
         <div class="col-md-6">
             <h4><?= $c1['name']['common'] ?></h4>
-            <div class="card bg-light p-3 mx-auto" style="width:120px;">
-                <img src="<?= $c1['flags']['png'] ?>" class="img-fluid">
+
+            <div class="card compare-card p-2 shadow bg-light mx-auto" style="width:120px;";>
+                <img src="<?= $c1['flags']['png'] ?>" crossorigin="anonymous">
+                <a href="?route=country&country_name=<?= urlencode($name1) ?>" 
+                class="stretched-link"></a>
             </div>
 
         </div>
         <div class="col-md-6">
             <h4><?= $c2['name']['common'] ?></h4>
-            <div class="card bg-light p-3 mx-auto" style="width:120px;">
-                <img src="<?= $c2['flags']['png'] ?>" class="img-fluid">
+            <div class="card compare-card p-2 shadow bg-light mx-auto" style="width:120px;";>
+                <img src="<?= $c2['flags']['png'] ?>" crossorigin="anonymous">
+                <a href="?route=country&country_name=<?= urlencode($name2) ?>" 
+                class="stretched-link"></a>
             </div>
 
         </div>

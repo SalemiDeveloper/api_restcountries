@@ -34,8 +34,9 @@ class ApiConsumer {
         }
     }
 
-    // Retornando todos os países (apenas nomes, em ordem alfabética).
+//===========================================================================
     public function get_all_countries_name() {
+        // Retornando todos os países (apenas nomes, em ordem alfabética).
         $results =  $this->api('all?fields=name');
 
         $countries = array();
@@ -46,21 +47,21 @@ class ApiConsumer {
         sort($countries); // Ordenando em ordem alfabética.
         return $countries;
     }
-
+    
+//===========================================================================
     public function get_country($country_name) {
-
         // Retornando um país específico
         return $this->api("name/" . rawurlencode($country_name) . "?fullText=true");
     }
 
+//===========================================================================
     public function get_neighbors($codes) {
-
         // Retornando os países que fazem fronteira
         return $this->api("alpha?codes=" . $codes);
     }
 
+//===========================================================================
     public function get_most_populous() {
-
         $most_populous = null;
         $teste = array();
         $countries = $this->api('all?fields=name,population,flags');
@@ -77,11 +78,11 @@ class ApiConsumer {
                 ];
             }
         }
-
         // Retornando o país mais populoso
         return $most_populous;
     }
 
+//===========================================================================
     public function get_least_populous() {
         $least_populous = null;
         $countries = $this->api('all?fields=name,population,flags');
@@ -97,11 +98,11 @@ class ApiConsumer {
                 ];
             }
         }
-
         // Retornando o país menos populoso
         return $least_populous;
     }
 
+//===========================================================================
     public function get_largest_area() {
         $largest = null;
         $countries = $this->api('all?fields=name,area,flags');
@@ -116,11 +117,11 @@ class ApiConsumer {
                 ];
             }
         }
-
         return $largest;
     }
 
-        public function get_smallest_area() {
+//===========================================================================
+    public function get_smallest_area() {
         $smallest = null;
         $countries = $this->api('all?fields=name,area,flags');
 
@@ -134,7 +135,6 @@ class ApiConsumer {
                 ];
             }
         }
-
         return $smallest;
     }
 }

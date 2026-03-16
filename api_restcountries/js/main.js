@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-    if (document.querySelector(".country-card")){
-        initCountryCards();
+    if (document.querySelector(".home-card")){
+        initHomeCards();
     }
 
-    if (document.querySelector(".teste-card")){
+    if (document.querySelector(".country-card")){
         initCountryPage();
     }
 
@@ -14,6 +14,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
     if (document.querySelector("#compare_btn")){
         initCompareSelect();
+    }
+
+    if (document.querySelector(".compare-card")){
+        initCompareCard();
     }
 });
 
@@ -53,7 +57,7 @@ function initCompareSelect() {
 
 function initCountryPage(){
 
-    const card = document.querySelector(".teste-card");
+    const card = document.querySelector(".country-card");
     if(!card) return;
 
     const img = card.querySelector("img");
@@ -66,9 +70,9 @@ function initCountryPage(){
 
 }
 
-function initCountryCards() {
+function initHomeCards() {
 
-    const cards = document.querySelectorAll(".country-card");
+    const cards = document.querySelectorAll(".home-card");
 
     cards.forEach(card => {
 
@@ -83,8 +87,25 @@ function initCountryCards() {
     });
 }
 
-function aplicarCores(img, elemento) {
+function initCompareCard(){
 
+    const cards = document.querySelectorAll(".compare-card");
+    if(!cards.length) return;
+
+    cards.forEach(card => {
+
+        const img = card.querySelector("img");        
+        if(img.complete){
+            aplicarCores(img, card);
+        }else{
+            img.addEventListener("load", () => aplicarCores(img, card));
+        }
+
+    });
+
+}
+
+function aplicarCores(img, elemento) {
     const colorThief = new ColorThief();
 
     const palette = colorThief.getPalette(img, 2);
