@@ -1,3 +1,4 @@
+IDEIAS
 1 - Formatar números.                    - ok
 2 - Mostrar o país no mapa.              - ok
 3 - Mostrar informações mais completas.  - 
@@ -13,4 +14,7 @@
 9 - Página de Rankings
 10 - Barra comparativa                   - ok
 
+CORREÇÕES
+Decimal sumiu no Vaticando, consertar.
+km2 sumiu no território em home.php, consertar.
 IMPLEMENTAR A BORDA GRADIENTE EM country.php
