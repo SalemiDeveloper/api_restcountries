@@ -1,15 +1,19 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-    if(document.querySelector(".country-card")){
+    if (document.querySelector(".country-card")){
         initCountryCards();
     }
 
-    if(document.querySelector(".card-teste")){
+    if (document.querySelector(".card-teste")){
         initCountryPage();
     }
 
-    if(document.querySelector("#select_country")){
+    if (document.querySelector("#select_country")){
         initCountrySelect();
+    }
+
+    if (document.querySelector("#compare_btn")){
+        initCompareSelect();
     }
 });
 

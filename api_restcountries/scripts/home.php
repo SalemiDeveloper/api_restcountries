@@ -52,7 +52,7 @@ $smallest_area  = $api->get_smallest_area();
                     <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
                         <h6>Maior população</h6>
                         <strong><?= $most_populous['name'] ?></strong>
-                        <p><?= number_format($most_populous['population'],0,',','.') ?></p>
+                        <p><?= number_format($most_populous['population'],0,',','.') ?> habitantes</p>
 
                         <img 
                         class="country-flag bg-secondary p-1 rounded"
@@ -69,7 +69,7 @@ $smallest_area  = $api->get_smallest_area();
                     <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
                         <h6>Menor população</h6>
                         <strong><?= $least_populous['name'] ?></strong>
-                        <p><?= number_format($least_populous['population'],0,',','.') ?></p>
+                        <p><?= number_format($least_populous['population'],0,',','.') ?> habitantes</p>
 
                         <img 
                         class="country-flag bg-secondary p-1 rounded"
@@ -86,7 +86,7 @@ $smallest_area  = $api->get_smallest_area();
                     <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
                         <h6>Maior território</h6>
                         <strong><?= $largest_area['name'] ?></strong>
-                        <p><?= number_format($largest_area['area'],0,',','.') ?></p>
+                        <p><?= number_format($largest_area['area'],0,',','.') ?> km<sup>2</sup></p>
 
                         <img 
                         class="country-flag bg-secondary p-1 rounded"
@@ -103,7 +103,7 @@ $smallest_area  = $api->get_smallest_area();
                     <div class="card country-card shadow-sm p-3 w-100 bg-light position-relative">
                         <h6>Menor Território</h6>
                         <strong><?= $smallest_area['name'] ?></strong>
-                        <p><?= number_format($smallest_area['area'],0,',','.') ?></p>
+                        <p><?= number_format($smallest_area['area'],2,',','.') ?> km<sup>2</sup></p>
 
                         <img 
                         class="country-flag bg-secondary p-1 rounded"
