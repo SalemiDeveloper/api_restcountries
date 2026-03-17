@@ -1,20 +1,13 @@
 IDEIAS
-1 - Formatar números.                    - ok
-2 - Mostrar o país no mapa.              - ok
-3 - Mostrar informações mais completas.  - 
-4 - Criar comparação.                    - ok
-5 - Estatísticas globais.                - ok 
-    . maior popula��o
-    . maior territ�rio
-    . menor pa�s
-    . continente com mais pa�se (exemplos)
-6 - Gr�ficos
-7 - Filtro por continente
-8 - Favoritar pa�ses
-9 - Página de Rankings
+1  - Formatar números.                    - ok
+2  - Mostrar o país no mapa.              - ok
+3  - Mostrar informações mais completas.  - 
+4  - Criar comparação.                    - ok
+5  - Estatísticas globais.                - ok 
+6  - Gráficos
+7  - Filtro por continente
+8  - Favoritar pa�ses
+9  - Página de Rankings
 10 - Barra comparativa                   - ok
 
-CORREÇÕES
-Decimal sumiu no Vaticando, consertar.
-km2 sumiu no território em home.php, consertar.
-IMPLEMENTAR A BORDA GRADIENTE EM country.php
+

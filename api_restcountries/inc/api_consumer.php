@@ -137,4 +137,10 @@ class ApiConsumer {
         }
         return $smallest;
     }
+
+//===========================================================================
+    // public function get_languages($country_name) {
+    //     // Retornando os idiomas falados no país.
+    //     return $this->api("languages/" . rawurlencode($country_name));
+    // }
 }

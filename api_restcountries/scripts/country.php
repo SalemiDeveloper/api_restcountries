@@ -24,6 +24,11 @@ $lng         = $country_data[0]['latlng'][1];
 $cca3        = $country_data[0]['cca3'];
 $borders     = $country_data[0]['borders'] ?? [];
 
+$languages   = array();
+foreach($country_data[0]['languages'] as $value) {
+    $languages[] = $value;
+}
+
 if (!empty($borders)) {
     $codes = implode(',', $borders);
     $neighbors = $api->get_neighbors($codes);
@@ -52,6 +57,9 @@ if (!empty($borders)) {
         <div class="col">
             <p><strong>População:</strong> <?php echo $population ?></p>
             <p><strong>Região:</strong> <?php echo $region ?></p>
+            <p><strong>Idiomas: </strong>
+                <?php echo implode(', ', $languages) ?>
+            </p>
         </div>
         <div class="col">
             <p><strong>Área:</strong> <?php echo $area ?> km<sup>2</sup></p>            
