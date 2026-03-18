@@ -35,15 +35,25 @@ $area1_percent = ($c1['area'] / $max_area) * 100;
 $area2_percent = ($c2['area'] / $max_area) * 100;
 
 // Comparação de população
-$dif = abs($c1['population'] - $c2['population']);
+$dif_pop = abs($c1['population'] - $c2['population']);
 
 if ($c1['population'] == $c2['population']) {
-    $compare = "$name1 e $name2 têm a mesma população";
+    $compare_pop = "$name1 e $name2 têm a mesma população";
 } else {
     $maior = $c1['population'] > $c2['population'] ? $name1 : $name2;
     $menor = $c1['population'] > $c2['population'] ? $name2 : $name1;
 
-    $compare = "$maior tem <strong>".number_format($dif,0,',','.')."</strong> habitantes a mais que $menor";
+    $compare_pop = "$maior tem <strong>".number_format($dif_pop,0,',','.')."</strong> habitantes a mais que $menor.";
+}
+
+$dif_area = abs($c1['area'] - $c2['area']);
+if ($c1['area'] == $c2['area']) {
+    $compare_area = "$name1 e $name possuem a mesma medida de território.";
+} else {
+    $maior = $c1['area'] > $c2['area'] ? $name1 : $name2;
+    $menor = $c1['area'] > $c2['area'] ? $name2 : $name1;
+
+    $compare_area = "$maior tem <strong>".number_format($dif_area,0,',','.')."</strong> km<sup>2</sup> a mais em territóriom que $menor.";
 }
 ?>
 
@@ -87,7 +97,7 @@ if ($c1['population'] == $c2['population']) {
         <div class="progress-bar bg-success"style="width: <?= $pop2_percent ?>%"></div>
     </div>
 
-    <p><?= $compare ?></p>
+    <p><?= $compare_pop ?></p>
     <p class="text-muted">Maior população do mundo: <?= $most_populous['name'].' com '.number_format($most_populous['population'],0,',','.')?> habitantes.</p>
 
     <h5>Território</h5>
@@ -100,6 +110,7 @@ if ($c1['population'] == $c2['population']) {
     <div class="progress mb-2">
         <div class="progress-bar bg-warning"style="width: <?= $area2_percent ?>%"></div>
     </div>
+    <p><?= $compare_area ?></p>
     <p class="text-muted">Maior território do mundo: <?= $largest_area['name'].' com '.number_format($largest_area['area'],0,',','.')?> km<sup>2</sup>.</p>
 </div>
 
