@@ -4,20 +4,19 @@ class ApiConsumer {
     private function api($endpoint, $method = "GET", $post_fields = array()) {
         $curl = curl_init();
 
-        //print_r($endpoint);
+        $api_key = getenv('RESTCOUNTRIES_API_KEY');
 
         curl_setopt_array($curl, array(
-
-            CURLOPT_URL => "https://restcountries.com/v3.1/".$endpoint,
+            CURLOPT_URL => "https://api.restcountries.com/countries/v5/" . $endpoint,
             CURLOPT_RETURNTRANSFER => true,
-            //CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => $method,
             CURLOPT_HTTPHEADER => [
-                "Accept: */*"
+                "Authorization: Bearer " . $api_key,
+                "Accept: application/json"
             ],
         ));
 
@@ -29,9 +28,12 @@ class ApiConsumer {
         if ($err) {
             echo "cURL Error #:" . $err;
             die(0);
-        } else {
-            return json_decode($response, true);
         }
+
+        $data = json_decode($response, true);
+var_dump($data);
+die();
+        return $data['data']['objects'] ?? null;
     }
 
 //===========================================================================
