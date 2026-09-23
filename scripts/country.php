@@ -12,21 +12,28 @@ if (!$country) {
 // Pegando os dados do p�is
 $country_data = $api->get_country($country);
 
-$flags       = $country_data[0]['flags']['png'];
-$name_common = $country_data[0]['name']['common'];
-$capital     = $country_data[0]['capital'][0];
-$population  = number_format($country_data[0]['population'], 0, ',', '.');
-$currency    = array_values($country_data[0]['currencies'])[0];
-$region      = $country_data[0]['region'];
-$area        = number_format($country_data[0]['area'], 0, ',', '.');
-$lat         = $country_data[0]['latlng'][0];
-$lng         = $country_data[0]['latlng'][1];
-$cca3        = $country_data[0]['cca3'];
-$borders     = $country_data[0]['borders'] ?? [];
+$country_info = $country_data[0];
 
-$languages   = array();
-foreach($country_data[0]['languages'] as $value) {
-    $languages[] = $value;
+$flags = $country_info['flag']['url_png'];
+$palette = $country_info['flag']['colors']['palette'] ?? [];
+$color1 = $palette[0]['hex'] ?? '#cccccc';
+$color2 = $palette[1]['hex'] ?? '#999999';
+
+$name_common = $country_info['names']['common'];
+$capital     = $country_info['capitals'][0]['name'] ?? 'Não informado';
+$population  = number_format($country_info['population'], 0, ',', '.');
+$currency    = $country_info['currencies'][0] ?? null;
+$region      = $country_info['region'];
+$area        = number_format($country_info['area']['kilometers'], 0, ',', '.');
+$lat         = $country_info['coordinates']['lat'];
+$lng         = $country_info['coordinates']['lng'];
+$cca3        = $country_info['codes']['alpha_3'];
+$borders     = $country_info['borders'] ?? [];
+
+$languages = [];
+
+foreach ($country_info['languages'] as $language) {
+    $languages[] = $language['name'];
 }
 
 if (!empty($borders)) {
@@ -41,8 +48,12 @@ if (!empty($borders)) {
     </div>
     
     <div class="d-flex">
-        <div class="card country-card p-2 shadow bg-light">
-            <img src="<?php echo $flags ?>" crossorigin="anonymous">
+        <div
+            class="card country-card p-2 shadow bg-light"
+            data-color-1="<?= htmlspecialchars($color1) ?>"
+            data-color-2="<?= htmlspecialchars($color2) ?>"
+        >
+            <img src="<?= htmlspecialchars($flags) ?>">
         </div>
 
         <div class="ms-5 allign-self-center">
@@ -63,7 +74,7 @@ if (!empty($borders)) {
         </div>
         <div class="col">
             <p><strong>Área:</strong> <?php echo $area ?> km<sup>2</sup></p>            
-            <p><strong>Moeda:</strong> <?php echo $currency['symbol'] ?> - <?php echo $currency['name'] ?></p>
+            <p><strong>Moeda:</strong><?= $currency? $currency['symbol'] . ' - ' . $currency['name']: 'Não informado'?></p>
 
         </div>
     </div>
@@ -82,8 +93,8 @@ if (!empty($borders)) {
         <?php foreach ($neighbors as $neighbor): ?>
 
     <a class="btn btn-outline-primary btn-sm me-2 mb-2"
-    href="?route=country&country_name=<?php echo $neighbor['name']['common'] ?>">
-    <?php echo $neighbor['name']['common'] ?>
+    href="?route=country&country_name=<?= urlencode($neighbor['names']['common']) ?>">
+    <?= htmlspecialchars($neighbor['names']['common']) ?>
     </a>
 
     <?php endforeach; ?>

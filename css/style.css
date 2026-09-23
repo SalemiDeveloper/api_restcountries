@@ -14,6 +14,13 @@ border-image: var(--gradient) 1;
     border-image: var(--gradient) 1;
 }
 
+.country-card img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
 .compare-card{
     transition: all 0.1s ease;
     border:2px solid transparent;

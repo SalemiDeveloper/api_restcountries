@@ -1,11 +1,16 @@
 <?php
 
-$apiKey = getenv('RESTCOUNTRIES_API_KEY');
+require_once __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$apiKey = $_ENV['RESTCOUNTRIES_API_KEY'];
 
 $curl = curl_init();
 
 curl_setopt_array($curl, [
-    CURLOPT_URL => 'https://api.restcountries.com/countries/v5?q=canada&pretty=1',
+    CURLOPT_URL => 'https://api.restcountries.com/countries/v5?q=argentina&pretty=1',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_HTTPHEADER => [
         'Authorization: Bearer ' . $apiKey,

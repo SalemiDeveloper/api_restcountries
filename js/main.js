@@ -30,8 +30,14 @@ function initCountrySelect() {
     
     select_country.addEventListener('change', () => {
         const country = select_country.value;
-        window.location.href = `?route=country&country_name=`+country;
-    })
+
+        if (!country) {
+            return;
+        }
+
+        window.location.href =
+            `?route=country&country_name=${encodeURIComponent(country)}`;
+    });
 }
 
 function initCompareSelect() {
@@ -55,19 +61,14 @@ function initCompareSelect() {
     });
 }
 
-function initCountryPage(){
-
+function initCountryPage() {
     const card = document.querySelector(".country-card");
-    if(!card) return;
 
-    const img = card.querySelector("img");
-
-    if(img.complete){
-        aplicarCores(img, card);
-    }else{
-        img.addEventListener("load", () => aplicarCores(img, card));
+    if (!card) {
+        return;
     }
 
+    aplicarCores(card);
 }
 
 function initHomeCards() {
@@ -75,45 +76,33 @@ function initHomeCards() {
     const cards = document.querySelectorAll(".home-card");
 
     cards.forEach(card => {
-
-        const img = card.querySelector(".country-flag");
-
-        if (img.complete) {
-            aplicarCores(img, card);
-        } else {
-            img.addEventListener("load", () => aplicarCores(img, card));
-        }
-
+        aplicarCores(card);
     });
 }
 
-function initCompareCard(){
+function initCompareCard() {
 
     const cards = document.querySelectorAll(".compare-card");
-    if(!cards.length) return;
+
+    if (!cards.length) {
+        return;
+    }
 
     cards.forEach(card => {
-
-        const img = card.querySelector("img");        
-        if(img.complete){
-            aplicarCores(img, card);
-        }else{
-            img.addEventListener("load", () => aplicarCores(img, card));
-        }
-
+        aplicarCores(card);
     });
-
 }
 
-function aplicarCores(img, elemento) {
-    const colorThief = new ColorThief();
+function aplicarCores(elemento) {
 
-    const palette = colorThief.getPalette(img, 2);
+    const color1 = elemento.getAttribute("data-color-1");
+    const color2 = elemento.getAttribute("data-color-2");
 
-    const c1 = `rgb(${palette[0][0]},${palette[0][1]},${palette[0][2]})`;
-    const c2 = `rgb(${palette[1][0]},${palette[1][1]},${palette[1][2]})`;
+    if (!color1 || !color2) {
+        return;
+    }
 
-    const gradient = `linear-gradient(45deg, ${c1}, ${c2})`;
+    const gradient = `linear-gradient(45deg, ${color1}, ${color2})`;
 
     elemento.dataset.gradient = gradient;
     elemento.style.setProperty("--gradient", gradient);

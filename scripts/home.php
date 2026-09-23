@@ -49,70 +49,114 @@ $smallest_area  = $api->get_smallest_area();
             <div class="row text-left">
 
                 <div class="col-md-3 d-flex">
-                    <div class="card home-card shadow-sm p-3 w-100 bg-light position-relative">
+                    <div
+                        class="card home-card shadow-sm p-3 w-100 bg-light position-relative"
+                        data-color-1="<?= htmlspecialchars($most_populous['colors'][0]['hex'] ?? '#cccccc') ?>"
+                        data-color-2="<?= htmlspecialchars($most_populous['colors'][1]['hex'] ?? '#999999') ?>"
+                    >
                         <h6>Maior população</h6>
-                        <strong><?= $most_populous['name'] ?></strong>
-                        <p><?= number_format($most_populous['population'],0,',','.') ?> habitantes</p>
 
-                        <img 
-                        class="country-flag bg-secondary p-1 rounded"
-                        src="<?= $most_populous['flag'] ?>" 
-                        crossorigin="anonymous"
-                        width="40">
+                        <strong><?= htmlspecialchars($most_populous['name']) ?></strong>
 
-                        <a href="?route=country&country_name=<?= urlencode($most_populous['name']) ?>" 
-                        class="stretched-link"></a>
+                        <p>
+                            <?= number_format($most_populous['population'], 0, ',', '.') ?>
+                            habitantes
+                        </p>
+
+                        <img
+                            class="country-flag bg-secondary p-1 rounded"
+                            src="<?= htmlspecialchars($most_populous['flag']) ?>"
+                            width="40"
+                        >
+
+                        <a
+                            href="?route=country&country_name=<?= urlencode($most_populous['name']) ?>"
+                            class="stretched-link"
+                        ></a>
                     </div>
                 </div>
 
                 <div class="col-md-3 d-flex">
-                    <div class="card home-card shadow-sm p-3 w-100 bg-light position-relative">
+                    <div
+                        class="card home-card shadow-sm p-3 w-100 bg-light position-relative"
+                        data-color-1="<?= htmlspecialchars($least_populous['colors'][0]['hex'] ?? '#cccccc') ?>"
+                        data-color-2="<?= htmlspecialchars($least_populous['colors'][1]['hex'] ?? '#999999') ?>"
+                    >
                         <h6>Menor população</h6>
-                        <strong><?= $least_populous['name'] ?></strong>
-                        <p><?= number_format($least_populous['population'],0,',','.') ?> habitantes</p>
 
-                        <img 
-                        class="country-flag bg-secondary p-1 rounded"
-                        src="<?= $least_populous['flag'] ?>" 
-                        crossorigin="anonymous"
-                        width="40">
+                        <strong><?= htmlspecialchars($least_populous['name']) ?></strong>
 
-                        <a href="?route=country&country_name=<?= urlencode($least_populous['name']) ?>" 
-                        class="stretched-link"></a>
+                        <p>
+                            <?= number_format($least_populous['population'], 0, ',', '.') ?>
+                            habitantes
+                        </p>
+
+                        <img
+                            class="country-flag bg-secondary p-1 rounded"
+                            src="<?= htmlspecialchars($least_populous['flag']) ?>"
+                            width="40"
+                        >
+
+                        <a
+                            href="?route=country&country_name=<?= urlencode($least_populous['name']) ?>"
+                            class="stretched-link"
+                        ></a>
                     </div>
-                </div>                
+                </div>            
 
                 <div class="col-md-3 d-flex">
-                    <div class="card home-card shadow-sm p-3 w-100 bg-light position-relative">
+                    <div
+                        class="card home-card shadow-sm p-3 w-100 bg-light position-relative"
+                        data-color-1="<?= htmlspecialchars($largest_area['colors'][0]['hex'] ?? '#cccccc') ?>"
+                        data-color-2="<?= htmlspecialchars($largest_area['colors'][1]['hex'] ?? '#999999') ?>"
+                    >
                         <h6>Maior território</h6>
-                        <strong><?= $largest_area['name'] ?></strong>
-                        <p><?= number_format($largest_area['area'],0,',','.') ?> km<sup>2</sup></p>
 
-                        <img 
-                        class="country-flag bg-secondary p-1 rounded"
-                        src="<?= $largest_area['flag'] ?>" 
-                        crossorigin="anonymous"
-                        width="40">
+                        <strong><?= htmlspecialchars($largest_area['name']) ?></strong>
 
-                        <a href="?route=country&country_name=<?= urlencode($largest_area['name']) ?>" 
-                        class="stretched-link"></a>
+                        <p>
+                            <?= number_format($largest_area['area'], 0, ',', '.') ?>
+                            km<sup>2</sup>
+                        </p>
+
+                        <img
+                            class="country-flag bg-secondary p-1 rounded"
+                            src="<?= htmlspecialchars($largest_area['flag']) ?>"
+                            width="40"
+                        >
+
+                        <a
+                            href="?route=country&country_name=<?= urlencode($largest_area['name']) ?>"
+                            class="stretched-link"
+                        ></a>
                     </div>
                 </div>
 
                 <div class="col-md-3 d-flex">
-                    <div class="card home-card shadow-sm p-3 w-100 bg-light position-relative">
+                    <div
+                        class="card home-card shadow-sm p-3 w-100 bg-light position-relative"
+                        data-color-1="<?= htmlspecialchars($smallest_area['colors'][0]['hex'] ?? '#cccccc') ?>"
+                        data-color-2="<?= htmlspecialchars($smallest_area['colors'][1]['hex'] ?? '#999999') ?>"
+                    >
                         <h6>Menor Território</h6>
-                        <strong><?= $smallest_area['name'] ?></strong>
-                        <p><?= number_format($smallest_area['area'],2,',','.') ?> km<sup>2</sup></p>
 
-                        <img 
-                        class="country-flag bg-secondary p-1 rounded"
-                        src="<?= $smallest_area['flag'] ?>" 
-                        crossorigin="anonymous"
-                        width="40">
+                        <strong><?= htmlspecialchars($smallest_area['name']) ?></strong>
 
-                        <a href="?route=country&country_name=<?= urlencode($smallest_area['name']) ?>" 
-                        class="stretched-link"></a>
+                        <p>
+                            <?= number_format($smallest_area['area'], 2, ',', '.') ?>
+                            km<sup>2</sup>
+                        </p>
+
+                        <img
+                            class="country-flag bg-secondary p-1 rounded"
+                            src="<?= htmlspecialchars($smallest_area['flag']) ?>"
+                            width="40"
+                        >
+
+                        <a
+                            href="?route=country&country_name=<?= urlencode($smallest_area['name']) ?>"
+                            class="stretched-link"
+                        ></a>
                     </div>
                 </div>
             </div>

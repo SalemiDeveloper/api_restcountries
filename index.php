@@ -1,4 +1,8 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 // Definindo constante para controlar o fluxo da aplica��o
 define('CONTROL', true);
