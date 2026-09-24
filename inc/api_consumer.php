@@ -42,8 +42,7 @@ class ApiConsumer
         $data = json_decode($response, true);
 
         if ($httpCode >= 400) {
-            $message = $data['errors'][0]['message']
-                ?? 'Erro desconhecido na API REST Countries.';
+            $message = $data['errors'][0]['message'] ?? 'Erro desconhecido na API REST Countries.';
 
             throw new RuntimeException(
                 "REST Countries API ({$httpCode}): {$message}"
@@ -62,14 +61,9 @@ class ApiConsumer
         $offset = 0;
 
         do {
-            $results = $this->api(
-                "?limit=" . self::PAGE_LIMIT . "&offset={$offset}"
-            );
-
+            $results = $this->api("?limit=" . self::PAGE_LIMIT . "&offset={$offset}");
             $countries = array_merge($countries, $results);
-
             $count = count($results);
-
             $offset += $count;
 
         } while ($count === self::PAGE_LIMIT);
@@ -115,7 +109,7 @@ class ApiConsumer
             }
 
             $results = $this->api(
-                '/borders/' . rawurlencode($code)
+                '/codes.alpha_3/' . rawurlencode($code)
             );
 
             $neighbors = array_merge($neighbors, $results);
@@ -131,10 +125,7 @@ class ApiConsumer
         $most_populous = null;
 
         foreach ($this->get_all_countries() as $country) {
-            if (
-                $most_populous === null
-                || $country['population'] > $most_populous['population']
-            ) {
+            if ($most_populous === null || $country['population'] > $most_populous['population']) {
                 $most_populous = [
                     'name' => $country['names']['common'],
                     'population' => $country['population'],
@@ -158,10 +149,7 @@ class ApiConsumer
                 continue;
             }
 
-            if (
-                $least_populous === null
-                || $country['population'] < $least_populous['population']
-            ) {
+            if ($least_populous === null || $country['population'] < $least_populous['population']) {
                 $least_populous = [
                     'name' => $country['names']['common'],
                     'population' => $country['population'],
@@ -183,10 +171,7 @@ class ApiConsumer
         foreach ($this->get_all_countries() as $country) {
             $area = $country['area']['kilometers'];
 
-            if (
-                $largest === null
-                || $area > $largest['area']
-            ) {
+            if ($largest === null || $area > $largest['area']) {
                 $largest = [
                     'name' => $country['names']['common'],
                     'area' => $area,
@@ -208,10 +193,7 @@ class ApiConsumer
         foreach ($this->get_all_countries() as $country) {
             $area = $country['area']['kilometers'];
 
-            if (
-                $smallest === null
-                || $area < $smallest['area']
-            ) {
+            if ($smallest === null|| $area < $smallest['area']) {
                 $smallest = [
                     'name' => $country['names']['common'],
                     'area' => $area,

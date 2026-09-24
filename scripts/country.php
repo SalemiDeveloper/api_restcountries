@@ -74,7 +74,7 @@ if (!empty($borders)) {
         </div>
         <div class="col">
             <p><strong>Área:</strong> <?php echo $area ?> km<sup>2</sup></p>            
-            <p><strong>Moeda:</strong><?= $currency? $currency['symbol'] . ' - ' . $currency['name']: 'Não informado'?></p>
+            <p><strong>Moeda:</strong> <?= $currency? $currency['symbol'] . ' - ' . $currency['name']: 'Não informado'?></p>
 
         </div>
     </div>

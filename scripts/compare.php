@@ -25,19 +25,8 @@ $c2 = $data2[0];
 $name1 = $c1['names']['common'];
 $name2 = $c2['names']['common'];
 
-$pop1 = number_format(
-    $c1['population'],
-    0,
-    ',',
-    '.'
-);
-
-$pop2 = number_format(
-    $c2['population'],
-    0,
-    ',',
-    '.'
-);
+$pop1 = number_format($c1['population'], 0, ',', '.');
+$pop2 = number_format($c2['population'], 0, ',', '.');
 
 // ---------------------------------------------------------
 // Cores das bandeiras
@@ -70,22 +59,10 @@ $pop2_percent = ($c2['population'] / $max_population) * 100;
 $area1_value = $c1['area']['kilometers'];
 $area2_value = $c2['area']['kilometers'];
 
-$area1 = number_format(
-    $area1_value,
-    0,
-    ',',
-    '.'
-);
-
-$area2 = number_format(
-    $area2_value,
-    0,
-    ',',
-    '.'
-);
+$area1 = number_format($area1_value, 0, ',', '.');
+$area2 = number_format($area2_value, 0, ',', '.');
 
 $largest_area = $api->get_largest_area();
-
 $max_area = $largest_area['area'];
 
 $area1_percent = ($area1_value / $max_area) * 100;
@@ -95,9 +72,7 @@ $area2_percent = ($area2_value / $max_area) * 100;
 // Comparação de população
 // ---------------------------------------------------------
 
-$dif_pop = abs(
-    $c1['population'] - $c2['population']
-);
+$dif_pop = abs($c1['population'] - $c2['population']);
 
 if ($c1['population'] == $c2['population']) {
 
@@ -106,47 +81,28 @@ if ($c1['population'] == $c2['population']) {
 
 } else {
 
-    $maior = $c1['population'] > $c2['population']
-        ? $name1
-        : $name2;
+    $maior = $c1['population'] > $c2['population'] ? $name1 : $name2;
+    $menor = $c1['population'] > $c2['population'] ? $name2 : $name1;
 
-    $menor = $c1['population'] > $c2['population']
-        ? $name2
-        : $name1;
-
-    $compare_pop =
-        "$maior tem <strong>"
-        . number_format($dif_pop, 0, ',', '.')
-        . "</strong> habitantes a mais que $menor.";
+    $compare_pop = "$maior tem <strong>" . number_format($dif_pop, 0, ',', '.') . "</strong> habitantes a mais que $menor.";
 }
 
 // ---------------------------------------------------------
 // Comparação de área
 // ---------------------------------------------------------
 
-$dif_area = abs(
-    $area1_value - $area2_value
-);
+$dif_area = abs($area1_value - $area2_value);
 
 if ($area1_value == $area2_value) {
 
-    $compare_area =
-        "$name1 e $name2 têm a mesma medida de território.";
+    $compare_area = "$name1 e $name2 têm a mesma medida de território.";
 
 } else {
 
-    $maior = $area1_value > $area2_value
-        ? $name1
-        : $name2;
+    $maior = $area1_value > $area2_value ? $name1 : $name2;
+    $menor = $area1_value > $area2_value ? $name2 : $name1;
 
-    $menor = $area1_value > $area2_value
-        ? $name2
-        : $name1;
-
-    $compare_area =
-        "$maior tem <strong>"
-        . number_format($dif_area, 0, ',', '.')
-        . "</strong> km<sup>2</sup> a mais em território que $menor.";
+    $compare_area = "$maior tem <strong>" . number_format($dif_area, 0, ',', '.') . "</strong> km<sup>2</sup> a mais em território que $menor.";
 }
 
 ?>
@@ -271,25 +227,14 @@ if ($area1_value == $area2_value) {
         Maior população do mundo:
         <?= htmlspecialchars($most_populous['name']) ?>
         com
-        <?= number_format(
-            $most_populous['population'],
-            0,
-            ',',
-            '.'
-        ) ?>
+        <?= number_format($most_populous['population'], 0, ',', '.') ?>
         habitantes.
     </p>
 
     <!-- Território -->
 
-    <h5>
-        Território
-    </h5>
-
-    <p>
-        <?= htmlspecialchars($name1) ?>
-        (<?= $area1 ?> km²)
-    </p>
+    <h5>Território</h5>
+    <p><?= htmlspecialchars($name1) ?>(<?= $area1 ?> km²)</p>
 
     <div class="progress mb-3">
 
@@ -300,10 +245,7 @@ if ($area1_value == $area2_value) {
 
     </div>
 
-    <p>
-        <?= htmlspecialchars($name2) ?>
-        (<?= $area2 ?> km²)
-    </p>
+    <p><?= htmlspecialchars($name2) ?>(<?= $area2 ?> km²)</p>
 
     <div class="progress mb-2">
 
@@ -314,20 +256,13 @@ if ($area1_value == $area2_value) {
 
     </div>
 
-    <p>
-        <?= $compare_area ?>
-    </p>
+    <p><?= $compare_area ?></p>
 
     <p class="text-muted">
         Maior território do mundo:
         <?= htmlspecialchars($largest_area['name']) ?>
         com
-        <?= number_format(
-            $largest_area['area'],
-            0,
-            ',',
-            '.'
-        ) ?>
+        <?= number_format($largest_area['area'], 0, ',', '.') ?>
         km<sup>2</sup>.
     </p>
 
